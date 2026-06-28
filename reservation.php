@@ -16,7 +16,7 @@ if (!isset($_SESSION['user_id'])) {
     <style>
        body{
     margin: 0;
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("food-mood.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("food mood.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
