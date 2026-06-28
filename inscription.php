@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("food mood.jpg");
+            background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("food-mood.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
