@@ -124,6 +124,10 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Confirmation de réservation</title>
   <style>
+    *{
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -135,23 +139,24 @@ try {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      padding: 30px;
-      box-sizing: border-box;
+      padding: 20px;
     }
 
     h1 {
       text-align: center;
       color: white;
       text-decoration: underline;
+      font-size: clamp(20px, 5vw, 28px);
     }
 
     .box {
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      padding: 30px;
+      padding: 20px;
       border-radius: 15px;
-      display: inline-block;
+      display: block;
+      width: 100%;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
       color: white;
       text-align: center;
@@ -168,8 +173,10 @@ try {
 
     img {
       margin-top: 20px;
-      width: 200px;
-      height: 200px;
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      aspect-ratio: 1 / 1;
       border-radius: 8px;
       background: white;
       padding: 8px;

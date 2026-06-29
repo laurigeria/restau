@@ -14,13 +14,20 @@ if (!isset($_SESSION['user_id'])) {
     <title>Réservation</title>
 
     <style>
+       *{
+    box-sizing: border-box;
+}
+
        body{
     margin: 0;
+    min-height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("foodmood.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
         h1{
@@ -28,12 +35,14 @@ if (!isset($_SESSION['user_id'])) {
             color: white;
             text-decoration: underline;
             margin-bottom: 5px;
+            font-size: clamp(20px, 5vw, 28px);
+            padding: 0 10px;
         }
 
         .topbar{
             display: flex;
             justify-content: flex-end;
-            padding: 15px 30px 0 30px;
+            padding: 15px 20px 0 20px;
         }
 
         .topbar a{
@@ -56,21 +65,18 @@ if (!isset($_SESSION['user_id'])) {
             opacity: 0.85;
         }
 
-       .reserve{
+        .reserve{
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin: auto;
-            width: 320px;
+            gap: 12px;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 360px;
             padding: 20px;
-            padding-bottom:5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            text-align: center;
-            align-items: center;
             color: white;
             border-radius: 10px;
             backdrop-filter: blur(5px);
-            background: rgba(255,255,255,0.08);
         }
 
         .champ{
@@ -88,8 +94,9 @@ if (!isset($_SESSION['user_id'])) {
 
         input, select{
             flex: 1;
+            min-width: 0;
             height: 35px;
-            border-radius: 10px;
+            border-radius: 5px;
             border: none;
             outline: none;
             padding: 5px;
@@ -120,6 +127,19 @@ if (!isset($_SESSION['user_id'])) {
 
         button:hover{
             background-color: rgb(80, 60, 60);
+        }
+
+        @media (max-width: 480px){
+            .champ{
+                flex-direction: column;
+                align-items: stretch;
+                gap: 5px;
+            }
+
+            .champ label{
+                width: auto;
+                text-align: left;
+            }
         }
     </style>
 </head>

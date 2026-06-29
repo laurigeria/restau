@@ -61,6 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Inscription</title>
 
     <style>
+        *{
+            box-sizing: border-box;
+        }
+
         body{
             margin: 0;
             min-height: 100vh;
@@ -72,14 +76,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-repeat: no-repeat;
             background-position: center;
             font-family: Arial, Helvetica, sans-serif;
-            padding: 30px;
-            box-sizing: border-box;
+            padding: 20px;
         }
 
         h1{
             text-align: center;
             color: white;
             text-decoration: underline;
+            font-size: clamp(20px, 5vw, 28px);
         }
 
         .reserve{
@@ -87,9 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flex-direction: column;
             gap: 10px;
             margin: auto;
-            width: 320px;
+            width: 100%;
+            max-width: 320px;
             padding: 20px;
-            padding-bottom:5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             text-align: center;
             align-items: center;
@@ -101,23 +105,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         label{
             align-self: flex-start;
-            margin-left: 50px;
         }
 
         input{
-            width: 220px;
-            height: 25px;
-            border-radius: 10px;
+            width: 100%;
+            max-width: 220px;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid rgba(255,255,255,0.4);
             outline: none;
             padding: 5px;
-             background-color: rgba(255, 255, 255, 0.15);
-             border: none;
         }
 
         button{
             background-color: rgb(52, 37, 37);
             color: white;
-            border-radius: 10px;
+            border-radius: 5px;
             width: 120px;
             height: 35px;
             border: none;
@@ -132,9 +135,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .erreurs{
             background: rgba(255, 80, 80, 0.2);
             border: 1px solid rgba(255,80,80,0.6);
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 10px 15px;
-            width: 280px;
+            width: 100%;
+            max-width: 280px;
             text-align: left;
         }
 
@@ -185,12 +189,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="confirmation">Confirmer le mot de passe</label>
             <input type="password" id="confirmation" name="confirmation" required>
+
             <button type="submit">S'inscrire</button>
 
             <p class="lien">Déjà un compte ? <a href="connexion.php">Se connecter</a></p>
 
         </div>
-          
     </form>
 </div>
 
