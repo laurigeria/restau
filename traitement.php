@@ -131,7 +131,7 @@ try {
       align-items: center;
       justify-content: center;
       font-family: Arial, Helvetica, sans-serif;
-      background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("food mood.jpg");
+      background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("foodmood.jpg");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
