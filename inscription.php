@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flex-direction: column;
             gap: 10px;
             margin: auto;
-            width: 100%;
+            width: 300px;
             max-width: 320px;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -101,20 +101,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 10px;
             backdrop-filter: blur(5px);
             background: rgba(255,255,255,0.08);
+           
         }
 
         label{
             align-self: flex-start;
         }
 
-        input{
-            width: 100%;
-            max-width: 220px;
-            height: 35px;
+        input, select{
+            flex: 1;
+            min-width: 0;
+            height: 45px;
             border-radius: 5px;
-            border: 1px solid rgba(255,255,255,0.4);
+            border: none;
             outline: none;
             padding: 5px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        input::placeholder{
+            color: rgba(255, 255, 255, 0.6);
         }
 
         button{
