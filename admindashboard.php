@@ -12,10 +12,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
     if ($id > 0) {
+        // Récupérer les infos de la réservation + email du client
+        $resa = $pdo->prepare(
+            "SELECT r.*, u.email, u.nom as client_nom
+             FROM reservations r
+             LEFT JOIN utilisateurs u ON r.utilisateur_id = u.id
+             WHERE r.id = ?"
+        );
+        $resa->execute([$id]);
+        $resa = $resa->fetch();
+
         if ($action === 'valider') {
             $pdo->prepare("UPDATE reservations SET statut = 'validee' WHERE id = ?")->execute([$id]);
+
+            // Email au client
+            if ($resa && $resa['email']) {
+                $sujet = "Votre reservation a ete validee - YanYan Mood";
+                $message = "Bonjour " . $resa['client_nom'] . ",\n\n"
+                    . "Votre reservation a ete confirmee et validee par notre equipe.\n\n"
+                    . "Details :\n"
+                    . "- Date : " . $resa['date_resa'] . "\n"
+                    . "- Heure : " . substr($resa['heure_resa'], 0, 5) . "\n"
+                    . "- Personnes : " . $resa['nombre'] . "\n"
+                    . "- Code : " . $resa['code_reservation'] . "\n\n"
+                    . "Presentez votre QR code a l'entree. A bientot !\n\n"
+                    . "YanYan Mood Restaurant";
+                $headers = "From: noreply@geria.infinityfree.me\r\nContent-Type: text/plain; charset=UTF-8";
+                mail($resa['email'], $sujet, $message, $headers);
+            }
+
         } elseif ($action === 'annuler') {
             $pdo->prepare("UPDATE reservations SET statut = 'annulee' WHERE id = ?")->execute([$id]);
+
+            // Email au client
+            if ($resa && $resa['email']) {
+                $sujet = "Votre reservation a ete annulee - YanYan Mood";
+                $message = "Bonjour " . $resa['client_nom'] . ",\n\n"
+                    . "Nous vous informons que votre reservation du " . $resa['date_resa']
+                    . " a " . substr($resa['heure_resa'], 0, 5)
+                    . " a ete annulee par notre equipe.\n\n"
+                    . "Vous pouvez faire une nouvelle reservation sur notre site.\n\n"
+                    . "Nous nous excusons pour la gene occasionnee.\n\n"
+                    . "YanYan Mood Restaurant";
+                $headers = "From: noreply@geria.infinityfree.me\r\nContent-Type: text/plain; charset=UTF-8";
+                mail($resa['email'], $sujet, $message, $headers);
+            }
+
         } elseif ($action === 'supprimer') {
             $pdo->prepare("DELETE FROM reservations WHERE id = ?")->execute([$id]);
         }

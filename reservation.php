@@ -41,12 +41,12 @@ if (!isset($_SESSION['user_id'])) {
 
         .topbar{
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             padding: 15px 20px 0 20px;
         }
 
         .topbar a{
-            color: #ffd9b3;
+            color: white;
             text-decoration: none;
             font-size: 14px;
         }
@@ -147,6 +147,7 @@ if (!isset($_SESSION['user_id'])) {
 <body>
 
 <div class="topbar">
+    <a href="mesreservations.php" style="color:white;text-decoration:none;font-size:14px;">Mes réservations</a>
     <a href="deconnexion.php">Se déconnecter</a>
 </div>
 

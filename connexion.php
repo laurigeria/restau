@@ -86,9 +86,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             max-width: 220px;
             height: 35px;
             border-radius: 5px;
-            border: 1px solid rgba(255,255,255,0.4);
+            border: none;
             outline: none;
             padding: 5px;
+             background-color: rgba(255, 255, 255, 0.15);
+             color: white;
         }
 
         button{
